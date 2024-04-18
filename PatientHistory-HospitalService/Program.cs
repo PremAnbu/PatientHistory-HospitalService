@@ -14,10 +14,9 @@ builder.Services.AddSingleton<PatientHistoryContext>();
 builder.Services.AddScoped<IPatientHistory, PatientHistoryServiceImpl>();
 
 // Configure HttpClient
-builder.Services.AddHttpClient("GetByDoctorId", client =>
+builder.Services.AddHttpClient("userByid", x =>
 {
-    client.BaseAddress = new Uri("https://localhost:7284/api/Doctor/"); // Replace with your external service base URL
-    // Configure other HttpClient options if needed
+    x.BaseAddress = new Uri("https://localhost:7173/api/UserManagement/");
 });
 
 // Get the secret key from the configuration
